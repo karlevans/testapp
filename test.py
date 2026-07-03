@@ -10,3 +10,4 @@ def login_vulnerable(username, password):
     cursor.execute(query)
     return cursor.fetchone()
 print "finished"
+print "another check"
