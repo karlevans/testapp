@@ -1,5 +1,11 @@
-print "This is a test"
+import sqlite3
 
-x=5
-for (i in range(y):
-    print "Iteration:", i
+def login_vulnerable(username, password):
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+    
+    # VULNERABLE: Direct string interpolation bypasses query structure
+    query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
+    
+    cursor.execute(query)
+    return cursor.fetchone()
