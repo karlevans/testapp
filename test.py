@@ -11,3 +11,5 @@ def login_vulnerable(username, password):
     return cursor.fetchone()
 print "finished"
 print "another check"
+print "another check2"
+print "another check3"
